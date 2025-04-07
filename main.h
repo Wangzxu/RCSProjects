@@ -7,6 +7,13 @@
  */
 #ifndef MAIN_H
 #define MAIN_H
-
+#include <iostream>
+#include <vector>
+#include <fstream>
+#include <cmath>
+#include "CreateMesh.h"
+#include "model.h"
+#include <string>
+#include "RCS.h"
 
 #endif //MAIN_H

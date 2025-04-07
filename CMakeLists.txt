@@ -3,4 +3,4 @@ project(ScatterProject)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(ScatterProject main.cpp CreateMesh.cpp)
+add_executable(ScatterProject main.cpp CreateMesh.cpp model.cpp RCS.cpp)

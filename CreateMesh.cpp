@@ -6,19 +6,9 @@
 #include <fstream>
 #include <cmath>
 #include <vector>
+#include "model.h"
 using namespace std;
 
-struct Vec3 {
-    double x, y, z;
-};
-
-struct Triangle {
-    int v1, v2, v3;
-};
-
-struct TriangleNum{
-    int v1, v2, v3;
-};
 tuple<vector<Vec3> , vector<Triangle>> mesh(int slices, int stacks, double radius, double PI) {
     std::vector<Vec3> vertices;
     std::vector<Triangle> triangles;
@@ -80,23 +70,9 @@ tuple<vector<Vec3> , vector<Triangle>> mesh(int slices, int stacks, double radiu
 
 void writeSTL(const std::vector<Vec3>& vertices, const std::vector<Triangle>& triangles, const std::string& filename) {
     std::ofstream fout(filename,std::ios::app);
-//    fout << "solid mesh\n";
-    vector<TriangleNum> trianglesWithNum;
     for (const auto& tri : triangles) {
-        TriangleNum triNum;
 
-        Vec3 a = vertices[tri.v1];
-        Vec3 b = vertices[tri.v2];
-        Vec3 c = vertices[tri.v3];
 
-        // 计算法向量
-        Vec3 ab{b.x - a.x, b.y - a.y, b.z - a.z};
-        Vec3 ac{c.x - a.x, c.y - a.y, c.z - a.z};
-        Vec3 normal{
-            ab.y * ac.z - ab.z * ac.y,
-            ab.z * ac.x - ab.x * ac.z,
-            ab.x * ac.y - ab.y * ac.x
-        };
 
 //        fout << " facet normal " << normal.x << " " << normal.y << " " << normal.z << "\n";
 //        fout << "  outer loop\n";
